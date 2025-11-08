@@ -1,0 +1,16 @@
+CompileFlags:
+  Add:  
+    - "-std=c99"  
+    - "-Id:/ProgrStuff/raylib/raylib/src"  
+    - "-Wall"
+    - "-Ld:/ProgrStuff/raylib/raylib/src/libraylib.a"
+    - "-ID:/ProgrStuff/msys64/usr/local/include/"
+    - "-lraylib"
+    - "-lopengl32"
+    - "-lgdi32"
+    - "-ID:/ProgrStuff/MyProj/c_world/GameSDL2/src"
+    - "-ID:/ProgrStuff/MyProj/c_world/GameSDL2/include"
+    - "-I${workspaceFolder}/**" 
+  Remove: 
+    - "-xobjective-c++-header"
+    - "-xobjective-c++"        
