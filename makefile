@@ -1,11 +1,17 @@
-COMPILER_PATH := D:/ProgrStuff/raylib/w64devkit/bin
-CC := $(COMPILER_PATH)/gcc.exe
-TARGET := Sand.exe
+CC := gcc
+
 SRC_DIR := src
 OBJ_DIR := obj
-INCFLAGS := -Iinclude -ID:/ProgrStuff/raylib/raylib/src 
-LDFLAGS := -LD:/ProgrStuff/raylib/raylib/src -lraylib -lopengl32 -lgdi32 -lwinmm -mconsole
 
+ifeq ($(OS),Windows_NT)
+	TARGET := Sand.exe
+	INCFLAGS := -Iinclude -ID:/ProgrStuff/raylib/raylib/src 
+	LDFLAGS := -LD:/ProgrStuff/raylib/raylib/src -lraylib -lopengl32 -lgdi32 -lwinmm -mconsole
+else
+	TARGET := Sand
+	INCFLAGS := -Iinclude
+    LDFLAGS := -lraylib -lm
+endif
 all: $(TARGET)
 
 $(TARGET): obj/main.o obj/sand.o obj/figure.o
